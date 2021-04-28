@@ -272,7 +272,7 @@ void PiecewisePoissonLossLog::set_to_min_less_of
   PoissonLossPieceListLog::iterator next_it;
   double prev_min_cost = INFINITY;
   double prev_min_log_mean = it->min_log_mean;
-  double prev_best_log_mean;
+  double prev_best_log_mean = INFINITY;
   while(it != input->piece_list.end()){
     double left_cost = it->getCost(it->min_log_mean);
     double right_cost = it->getCost(it->max_log_mean);
@@ -483,7 +483,7 @@ void PiecewisePoissonLossLog::set_to_min_more_of
   it--;
   double prev_min_cost = INFINITY;
   double prev_max_log_mean = it->max_log_mean;
-  double prev_best_log_mean;
+  double prev_best_log_mean = INFINITY;
   it++;
   if(verbose)print();
   while(it != input->piece_list.begin()){
